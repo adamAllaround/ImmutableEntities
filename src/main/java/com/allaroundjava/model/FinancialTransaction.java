@@ -40,4 +40,23 @@ public final class FinancialTransaction {
     public static FinancialTransaction newInstance(BigDecimal amount, Instant timestamp) {
         return new FinancialTransaction(amount, timestamp);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof FinancialTransaction)) return false;
+
+        FinancialTransaction that = (FinancialTransaction) o;
+
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (!amount.equals(that.amount)) return false;
+        return timestamp.equals(that.timestamp);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = amount.hashCode();
+        result = 31 * result + timestamp.hashCode();
+        return result;
+    }
 }
