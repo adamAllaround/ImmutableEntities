@@ -2,16 +2,11 @@ package com.allaroundjava.dao;
 
 import com.allaroundjava.model.FinancialTransaction;
 
-import java.util.Optional;
+import javax.persistence.EntityManagerFactory;
 
-public class FinancialTransactionDaoImpl implements FinancialTransactionDao {
-    @Override
-    public Optional<FinancialTransaction> getById(Long id) {
-        return Optional.empty();
-    }
+class FinancialTransactionDaoImpl extends BaseDao<FinancialTransaction> {
 
-    @Override
-    public Long persist(FinancialTransaction c) {
-        return null;
+    FinancialTransactionDaoImpl(EntityManagerFactory emf) {
+        super(FinancialTransaction.class, emf);
     }
 }

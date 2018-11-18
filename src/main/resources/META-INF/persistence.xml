@@ -4,15 +4,17 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
              version="2.2">
-    <persistence-unit name="hibernateSpring">
+    <persistence-unit name="immutableEntities">
         <class>com.allaroundjava.model.FinancialTransaction</class>
+        <class>com.allaroundjava.model.Receipt</class>
+        <class>com.allaroundjava.model.LineItem</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:test"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:test;INIT=RUNSCRIPT FROM 'classpath:ddl_script.sql'"/>
             <property name="javax.persistence.jdbc.user" value="sa"/>
             <property name="javax.persistence.jdbc.password" value=""/>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
-            <property name="javax.persistence.schema-generation.database.action" value="create-drop"/>
+            <property name="javax.persistence.schema-generation.database.action" value="validate"/>
         </properties>
     </persistence-unit>
 </persistence>

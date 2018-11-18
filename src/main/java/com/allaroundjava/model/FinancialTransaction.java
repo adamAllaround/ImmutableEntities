@@ -5,7 +5,8 @@ import java.math.BigDecimal;
 import java.time.Instant;
 
 @Entity
-public final class FinancialTransaction {
+@Table(name = "FINANCIAL_TRANSACTION")
+public class FinancialTransaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,11 +16,10 @@ public final class FinancialTransaction {
     @Column(nullable = false)
     private Instant timestamp;
 
-    FinancialTransaction() {
+    private FinancialTransaction() {
     }
 
-    FinancialTransaction(Long id, BigDecimal amount, Instant timestamp) {
-        this.id = id;
+    private FinancialTransaction(BigDecimal amount, Instant timestamp) {
         this.amount = amount;
         this.timestamp = timestamp;
     }
@@ -36,7 +36,7 @@ public final class FinancialTransaction {
         return timestamp;
     }
 
-    public static FinancialTransaction newInstance(Long id, BigDecimal amount, Instant timestamp) {
-        return new FinancialTransaction(id, amount, timestamp);
+    public static FinancialTransaction newInstance(BigDecimal amount, Instant timestamp) {
+        return new FinancialTransaction(amount, timestamp);
     }
 }
