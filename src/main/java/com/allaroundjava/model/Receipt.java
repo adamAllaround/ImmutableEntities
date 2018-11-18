@@ -38,7 +38,7 @@ public final class Receipt {
     }
 
     public Set<LineItem> getLineItems() {
-        return lineItems;
+        return Collections.unmodifiableSet(lineItems);
     }
 
     public static Receipt newInstance(LocalDateTime transactionDate, Set<LineItem> transactions) {
