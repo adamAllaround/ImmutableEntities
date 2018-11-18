@@ -7,6 +7,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "RECEIPT")
+@org.hibernate.annotations.Immutable
 public final class Receipt {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,7 +41,7 @@ public final class Receipt {
         return lineItems;
     }
 
-    public static Receipt valueOf(LocalDateTime transactionDate, Set<LineItem> transactions) {
+    public static Receipt newInstance(LocalDateTime transactionDate, Set<LineItem> transactions) {
         return new Receipt(transactionDate, Collections.unmodifiableSet(transactions));
     }
 }

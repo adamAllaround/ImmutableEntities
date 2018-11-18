@@ -6,7 +6,8 @@ import java.time.Instant;
 
 @Entity
 @Table(name = "FINANCIAL_TRANSACTION")
-public class FinancialTransaction {
+@org.hibernate.annotations.Immutable
+public final class FinancialTransaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
