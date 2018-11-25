@@ -51,7 +51,7 @@ public class ReceiptDaoImplTest {
         int lineItemcount = receipt.getLineItems().size();
 
         LineItem item = LineItem.getBuilder()
-                .withItemName("mayo")
+                .withItemName("ketchup")
                 .withPrice(BigDecimal.TEN)
                 .withQuantity(2)
                 .build();

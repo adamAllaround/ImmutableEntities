@@ -55,7 +55,8 @@ public final class FinancialTransaction {
 
     @Override
     public int hashCode() {
-        int result = amount.hashCode();
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + amount.hashCode();
         result = 31 * result + timestamp.hashCode();
         return result;
     }

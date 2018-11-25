@@ -18,6 +18,7 @@ public final class Receipt {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "receipt_id")
+    @org.hibernate.annotations.Immutable
     private Set<LineItem> lineItems;
 
     private Receipt() {
@@ -38,7 +39,7 @@ public final class Receipt {
     }
 
     public Set<LineItem> getLineItems() {
-        return Collections.unmodifiableSet(lineItems);
+        return lineItems;
     }
 
     public static Receipt newInstance(LocalDateTime transactionDate, Set<LineItem> transactions) {
