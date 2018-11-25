@@ -13,11 +13,11 @@ public final class Receipt {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, name = "transaction_date")
+    @Column(nullable = false, name = "TRANSACTION_DATE")
     private LocalDateTime transactionDate;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "receipt_id")
+    @JoinColumn(name = "RECEIPT_ID")
     @org.hibernate.annotations.Immutable
     private Set<LineItem> lineItems;
 

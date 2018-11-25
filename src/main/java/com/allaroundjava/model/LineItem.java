@@ -9,7 +9,7 @@ public final class LineItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "item_name", nullable = false)
+    @Column(name = "ITEM_NAME", nullable = false)
     private String itemName;
     @Column(nullable = false)
     private BigDecimal price;
