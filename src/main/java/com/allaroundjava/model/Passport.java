@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @org.hibernate.annotations.Immutable
-public class Passport {
+public final class Passport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,10 +16,10 @@ public class Passport {
     @JoinColumn(name = "PERSON_ID")
     private Person person;
 
-    private Passport() {
+    Passport() {
     }
 
-    private Passport(String passportNumber, Person person) {
+    Passport(String passportNumber, Person person) {
         this.passportNumber = passportNumber;
         this.person = person;
     }

@@ -21,11 +21,11 @@ public final class Receipt {
     @org.hibernate.annotations.Immutable
     private Set<LineItem> lineItems;
 
-    private Receipt() {
+    Receipt() {
 
     }
 
-    private Receipt(LocalDateTime transactionDate, Set<LineItem> lineItems) {
+    Receipt(LocalDateTime transactionDate, Set<LineItem> lineItems) {
         this.transactionDate = transactionDate;
         this.lineItems = lineItems;
     }

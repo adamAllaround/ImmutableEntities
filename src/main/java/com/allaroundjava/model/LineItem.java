@@ -16,11 +16,11 @@ public final class LineItem {
     @Column(nullable = false)
     private int quantity;
 
-    private LineItem() {
+    LineItem() {
 
     }
 
-    private LineItem(String name, BigDecimal price, int quantity) {
+    LineItem(String name, BigDecimal price, int quantity) {
         this.itemName = name;
         this.price = price;
         this.quantity = quantity;

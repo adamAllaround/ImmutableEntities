@@ -17,10 +17,10 @@ public final class FinancialTransaction {
     @Column(nullable = false)
     private Instant timestamp;
 
-    private FinancialTransaction() {
+    FinancialTransaction() {
     }
 
-    private FinancialTransaction(BigDecimal amount, Instant timestamp) {
+    FinancialTransaction(BigDecimal amount, Instant timestamp) {
         this.amount = amount;
         this.timestamp = timestamp;
     }
